@@ -1,0 +1,104 @@
+{
+	"compiler": {
+		"version": "0.8.20+commit.a1b79de6"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_a",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_b",
+						"type": "uint256"
+					}
+				],
+				"name": "adder",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_a",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_b",
+						"type": "uint256"
+					}
+				],
+				"name": "subtractor",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Users/engineer/workspace/BaseCamp/BasicFunctionExercise/contracsts/BasicMath.sol": "BasicMath"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Users/engineer/workspace/BaseCamp/BasicFunctionExercise/contracsts/BasicMath.sol": {
+			"keccak256": "0x1fbd0c199394630b6318e09088c54b3a1cbe3fa900f5b3b6536fa11317a96269",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://dbcbe389795b167273726d76d0e3fd630d80413e2af6e34bc4294320909f36af",
+				"dweb:/ipfs/QmdzMXNuT6piYNTXEMq291jNqsEZUHixxJLfzC6WaCmf1B"
+			]
+		}
+	},
+	"version": 1
+}
