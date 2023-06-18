@@ -26,7 +26,7 @@ The limitatoins of Web3:
 - World State: Represents the entire Ethereum network, including all accounts and their associated storage.
 - Accounts: Entities that interact with the Ethereum network, including Externally Owned Accounts (EOAs) and Contract Accounts.
 - Storage: A key-value store associated with each contract account, containing the contract's state and data.
-- Execution Stack: A last-in, first-out (LIFO) data structure for temporarily storing values during opcode execution.
+- Execution Stack: A last-in, first-out (LIFO) data structure for temporarily storing values during opcode execution.  Used for **holding function arguments, local variables, and intermediate values during function execution**
 
 - Memory: A runtime memory used by smart contracts during execution.
 - Program Counter: A register that keeps track of the position of the next opcode to be executed.
@@ -136,21 +136,149 @@ Flavors chosenFlavor = Flavors.Coffee;
 ## Faucets
 - https://faucet.quicknode.com/ethereum/goerli
 
-![](notes.md-images/2023-06-11-18-18-22.webp)
-![](notes.md-images/2023-06-11-18-18-54.webp)
+![](notes.md-images/2023-06-11-18-18-22.png)
+![](notes.md-images/2023-06-11-18-18-54.png)
 - https://bwarelabs.com/faucets
 
 ## Deployment
 
-![](notes.md-images/2023-06-11-18-57-25.webp)
-![](notes.md-images/2023-06-11-18-58-04.webp)
-![](notes.md-images/2023-06-11-18-58-20.webp)
+![](notes.md-images/2023-06-11-18-57-25.png)
+![](notes.md-images/2023-06-11-18-58-04.png)
+![](notes.md-images/2023-06-11-18-58-20.png)
 
 [tx](https://goerli.basescan.org/tx/0xa97800186455d6d91ef474d2ffcb1dcfec5c9f9c47df913af9309184ac46ee80)
-![](notes.md-images/2023-06-11-19-00-34.webp)
+![](notes.md-images/2023-06-11-19-00-34.png)
 
 `0xB5990Cd4F9EEaE2E1a5Db3289A43cF6aB299373F`
 
 
 # First Achivements
 
+![](notes.md-images/2023-06-11-19-08-31.png)
+
+
+# Control Structures
+
+```solidity
+function condition(uint a, uint b) external pure returns (int) {
+    for (uint i = 0; i < 0; i++) {
+        console.log(i);
+    }
+
+    if (a > b) {
+        return 1;
+    } else if (a < b) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+```
+
+
+### `require`, `revert`, `error`, `panic`
+```solidity
+function f1(uint a, uint b) public returns (bool) {
+    require(a < 10 && a > 5 && b > 256 && b < 1024, "invalid range");
+}
+```
+
+`error`, `revert` consume les gas
+
+```solidity
+error InvalidArgument();
+function f2(uint a, uint b) public returns (bool) {
+    revert();
+    if (a > 256 || b > 256) {
+        revert InvalidArgument();
+    }
+}
+
+You'll also encounter revert used as a function, returning a string error. This legacy pattern has been retained to maintain compatibility with older contracts:
+```solidity
+function oldRevertAddEvenNumbers(uint _first, uint _second) public pure returns (uint) {
+    if(_first % 2 != 0 || _second % 2 != 0) {
+        // Legacy use of revert, do not use
+        revert("One of the numbers is odd");
+    }
+    return _first + _second;
+}
+```
+
+
+`type Panic(uint)` thrown by `assert(condition)`, selector `0x4e487b71`
+`type Error(string)` thrown by `require(condition, message)`, selector `0x8c379a`
+
+
+0x612A80F000C6Dc07592029fC22963935b31975C6
+
+![](notes.md-images/2023-06-17-22-27-05.webp)
+
+## Variable Packing
+
+![](notes.md-images/2023-06-17-23-16-04.webp)
+![](notes.md-images/2023-06-17-23-15-57.webp)
+
+
+0x8d716d0417421BfC7adf04b99f760D310f1374Dc
+
+
+# Arrays
+
+```solidity
+contract StorageArray {
+    // Variables declared at the class level are always `storage`
+    uint[] arr = [1, 2, 3, 4, 5];
+
+    function function_1() public {
+        uint[] storage arr2 = arr;
+
+        arr2[0] = 99; // <- arr is now [99, 2, 3, 4, 5];
+    }
+
+    function function_2(uint _num) public returns(uint[] memory) {
+        arr_2.push(_num); // <- arr_2 is [1, 2, 3, 4, 5, <_num>]
+
+        delete arr_2[2];  // <- arr_2 is [1, 2, 0, 4, 5, <_num>]
+
+        arr_2.pop();  // <- arr_2 is [1, 2, 0, 4, 5] (_num IS NOT returned by.pop())
+
+        delete arr_2; // <- arr_2 is []
+        return arr_2; // <- returns []
+    }
+}
+```
+
+Operations
+- `arr.push()`
+- `arr.pop()`
+- `delete arr[2]`
+- `arr.length`
+
+Type of arrays: storage, memory, and calldata
+The storage, memory, or calldata keywords are required when declaring a new reference type variable
+
+Storage is very expensive compared to most other environments. It costs a minimum of 20000 gas to store a value in a new storage slot, though it's cheaper to update that value after the initial assignment (~5000+ gas).
+
+You **cannot use a storage array as a function parameter**, and you **cannot write a function that returns a storage array**.
+
+Storage arrays are dynamic, unless they are declared with an explicit size
+
+Arrays declared as **memory** are temporary and only exist within the scope in which they are created. Arrays in memory are not dynamic and **must be declared with a fixed size**.
+
+```solidity
+function declareMemoryArrays() public view {
+    uint[5] memory simpleArr; // this line costs 135 gas
+    uint[] memory emptyArr = new uint[](5); // This line costs 194 gas
+    uint[] memory arrCopy = arr; // This line costs 13166 gas
+}
+```
+
+**Arrays in calldata are read only.** Otherwise, they function the same as any other array.
+
+Array slices are currently only implemented for calldata arrays.
+
+
+0x9DCc3a9aa840e5B962a9E359fC72FEa634808CF7
+
+![](notes.md-images/2023-06-18-16-12-57.webp)
