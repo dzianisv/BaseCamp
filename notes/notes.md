@@ -210,7 +210,7 @@ function oldRevertAddEvenNumbers(uint _first, uint _second) public pure returns 
 `type Error(string)` thrown by `require(condition, message)`, selector `0x8c379a`
 
 
-0x612A80F000C6Dc07592029fC22963935b31975C6
+[0x612A80F000C6Dc07592029fC22963935b31975C6](https://goerli.basescan.org/address/0x612A80F000C6Dc07592029fC22963935b31975C6)
 
 ![](notes.md-images/2023-06-17-22-27-05.webp)
 
@@ -220,8 +220,10 @@ function oldRevertAddEvenNumbers(uint _first, uint _second) public pure returns 
 ![](notes.md-images/2023-06-17-23-15-57.webp)
 
 
-0x8d716d0417421BfC7adf04b99f760D310f1374Dc
 
+[0x8D0BCDD86577d6DA9F098941C29a84365a0978Db](https://goerli.basescan.org/address/0x8D0BCDD86577d6DA9F098941C29a84365a0978Db)
+
+![](notes.md-images/2023-06-18-18-09-57.webp)
 
 # Arrays
 
@@ -279,6 +281,23 @@ function declareMemoryArrays() public view {
 Array slices are currently only implemented for calldata arrays.
 
 
-0x9DCc3a9aa840e5B962a9E359fC72FEa634808CF7
+[0x9DCc3a9aa840e5B962a9E359fC72FEa634808CF7](https://goerli.basescan.org/address/0x9DCc3a9aa840e5B962a9E359fC72FEa634808CF7)
 
 ![](notes.md-images/2023-06-18-16-12-57.webp)
+
+## [Mappings](https://docs.base.org/base-camp/docs/mappings/mappings-sbs)
+Limitations:
+- Mappings can only have a data location of storage
+- They can't be used as parameters or returns of public functions
+- They are not iterable and you cannot retrieve a list of keys
+- All possible keys will return the default value, unless another value has been stored
+
+
+```solidity
+mapping(string => bool) public approvedRecords;
+mapping(address => mapping(string => bool)) userFavorites;
+```
+
+`0x99Ef1040d41a928e8a4C266a84DBCe0548842BE5`
+
+![](notes.md-images/2023-06-23-16-24-17.webp)
