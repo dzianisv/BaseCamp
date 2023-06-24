@@ -136,25 +136,25 @@ Flavors chosenFlavor = Flavors.Coffee;
 ## Faucets
 - https://faucet.quicknode.com/ethereum/goerli
 
-![](notes.md-images/2023-06-11-18-18-22.png)
-![](notes.md-images/2023-06-11-18-18-54.png)
+![](notes.md-images/2023-06-11-18-18-22.webp)
+![](notes.md-images/2023-06-11-18-18-54.webp)
 - https://bwarelabs.com/faucets
 
 ## Deployment
 
-![](notes.md-images/2023-06-11-18-57-25.png)
-![](notes.md-images/2023-06-11-18-58-04.png)
-![](notes.md-images/2023-06-11-18-58-20.png)
+![](notes.md-images/2023-06-11-18-57-25.webp)
+![](notes.md-images/2023-06-11-18-58-04.webp)
+![](notes.md-images/2023-06-11-18-58-20.webp)
 
 [tx](https://goerli.basescan.org/tx/0xa97800186455d6d91ef474d2ffcb1dcfec5c9f9c47df913af9309184ac46ee80)
-![](notes.md-images/2023-06-11-19-00-34.png)
+![](notes.md-images/2023-06-11-19-00-34.webp)
 
 `0xB5990Cd4F9EEaE2E1a5Db3289A43cF6aB299373F`
 
 
 # First Achivements
 
-![](notes.md-images/2023-06-11-19-08-31.png)
+![](notes.md-images/2023-06-11-19-08-31.webp)
 
 
 # Control Structures
@@ -301,3 +301,37 @@ mapping(address => mapping(string => bool)) userFavorites;
 `0x99Ef1040d41a928e8a4C266a84DBCe0548842BE5`
 
 ![](notes.md-images/2023-06-23-16-24-17.webp)
+
+## [Function Modifiers](https://docs.base.org/base-camp/docs/advanced-functions/function-modifiers)
+
+```solidity
+modifier onlyOwner {
+    if (msg.sender != owner) {
+        revert NotOwner(msg.sender);
+    }
+    _;
+}
+function iOwnThis() public view onlyOwner returns (string memory) {
+    return "You own this!";
+}
+```
+
+```solidity
+error NotEven(uint number);
+
+modifier onlyEven(uint _number) {
+    if(_number % 2 != 0) {
+        revert NotEven(_number);
+    }
+    _;
+}
+
+function halver(uint _number) public pure onlyEven(_number) returns (uint) {
+    return _number / 2;
+}
+```
+
+## [Structs](https://docs.base.org/base-camp/docs/structs/structs-sbs)
+[Excercise](https://docs.base.org/base-camp/docs/structs/structs-exercise)
+0x007f2EbFe8afd405616747bbcCed1aFe9de472a3
+![](notes.md-images/2023-06-24-22-48-07.webp)
