@@ -335,3 +335,40 @@ function halver(uint _number) public pure onlyEven(_number) returns (uint) {
 [Excercise](https://docs.base.org/base-camp/docs/structs/structs-exercise)
 0x007f2EbFe8afd405616747bbcCed1aFe9de472a3
 ![](notes.md-images/2023-06-24-22-48-07.webp)
+
+## [Inheritance](https://docs.base.org/base-camp/docs/inheritance/inheritance-sbs)
+
+```solidity
+contract ContractB {
+    function whoAmI() external pure returns (string memory) {
+        return "contract B";
+    }
+}
+
+contract ContractA is ContractB {
+}
+```
+
+You cannot call a private function from a contract that inherits from the contract containing that function.
+
+### Multiple Inheritance
+```solidity
+contract ContractA is ContractB, ContractC {
+    function whoAmI() external override(ContractB, ContractC) pure returns (string memory) {
+        return ContractB.whoAmI();
+    }
+}
+```
+
+### Abstract contract
+```solidity
+abstract contract ContractD {
+    function whoAreYou() public virtual view returns (string memory);
+}
+```
+### Excercise
+Salesperson 0xEA5d6816d135a770b222E40237E329c486301082
+EngineeringManager 0xF18Fa4Afb6763809593ee5Dc8619410b4B40fFaC
+InheritanceSubmission 0x2FBb3Db36a85644e1F3d92cB60B46974ef948Aa1
+
+![](notes.md-images/2023-06-25-15-27-02.webp)
