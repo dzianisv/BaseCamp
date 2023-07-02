@@ -428,3 +428,41 @@ Remember that msg is a global variable and its properties are read-only. You can
 0x5fD568920Aa839222dce32E1B8f10Ee1aCE005aC
 
 ![](notes.md-images/2023-07-02-17-39-55.webp)
+
+# hardhat
+```bash
+npm init --y
+npm install --save-dev hardhat
+npx hardhat
+npm install --save-dev @nomicfoundation/hardhat-toolbox
+npm install --save-dev dotenv
+npm install --save @openzeppelin/contracts
+npx hardhat compile
+
+npx hardhat run scripts/deploy.ts --network base-goerli
+```
+
+
+```ts
+etherscan: {
+   apiKey: {
+    // Basescan doesn't require an API key, however
+    // Hardhat still expects an arbitrary string to be provided.
+    "base-goerli": "PLACEHOLDER_STRING"
+   },
+   customChains: [
+     {
+       network: "base-goerli",
+       chainId: 84531,
+       urls: {
+        apiURL: "https://api-goerli.basescan.org/api",
+        browserURL: "https://goerli.basescan.org"
+       }
+     }
+   ]
+ },
+ ```
+
+ ```bash
+ npx hardhat verify --network base-goerli <deployed address>
+ ```

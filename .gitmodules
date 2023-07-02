@@ -1,0 +1,3 @@
+[submodule "excercises/AddressBook/openzeppelin-contracts"]
+	path = excercises/AddressBook/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts.git
