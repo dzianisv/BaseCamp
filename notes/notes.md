@@ -372,3 +372,59 @@ EngineeringManager 0xF18Fa4Afb6763809593ee5Dc8619410b4B40fFaC
 InheritanceSubmission 0x2FBb3Db36a85644e1F3d92cB60B46974ef948Aa1
 
 ![](notes.md-images/2023-06-25-15-27-02.webp)
+
+
+# Imports
+
+```solidity
+pragma solidity 0.8.19;
+
+import {SillyStringUtils} from "./SillyStringUtils.sol";
+contract ImportsExercise {
+    using SillyStringUtils for string;
+
+```
+
+```
+Gas estimation errored with the following message (see below). The transaction execution will likely fail. Do you want to force sending?
+Returned error: {"jsonrpc":"2.0","error":"invalid opcode: PUSH0","id":6746471899926195}
+```
+
+Fixed by removing `^` in `pragma solidity`.
+
+0x14E7DcF2f654694eb9eb8944eA427D9788dD44B1
+
+![](notes.md-images/2023-07-02-14-31-14.webp)
+
+
+# [Error Triage](https://docs.base.org/base-camp/docs/error-triage/)
+
+Overflow or underflow
+In this case, the error type is 11, for overflow/underflow outside of an unchecked block.
+
+
+0x100667B4af3b9B6eC083f799B4117C54C755668c
+
+![](notes.md-images/2023-07-02-15-31-34.webp)
+
+# `msg`
+
+The msg global variable in Solidity provides properties related to the current transaction or function call, and it is available in all functions. The properties of msg are:
+
+msg.sender: This is the address of the account that directly initiated the contract function call. This could be an externally owned account (EOA) or a contract account. If contract A calls contract B, and contract B checks msg.sender, it will see the address of contract A.
+
+msg.value: This is the amount of wei (the smallest unit of ether) sent with the message. If the function is not marked as payable, this value must be zero.
+
+msg.data: This is the complete calldata, which is a non-modifiable, non-persistent area where function arguments are stored and passed to the function. This property is rarely used directly; usually, function parameters are used instead.
+
+msg.gas (deprecated in Solidity 0.4.21): This was the amount of gas remaining for the transaction. It has been deprecated because it caused a lot of confusion and could be misused in ways that would cause contracts to become vulnerable.
+
+msg.sig: This is the first four bytes of the calldata. For function calls, this is the function signature hash.
+
+Remember that msg is a global variable and its properties are read-only. You cannot modify the values of these properties.
+
+## `new Contract` and Contarct Factory
+
+0x5fD568920Aa839222dce32E1B8f10Ee1aCE005aC
+
+![](notes.md-images/2023-07-02-17-39-55.webp)
