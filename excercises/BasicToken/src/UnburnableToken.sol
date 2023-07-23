@@ -55,7 +55,7 @@ contract UnburnableToken {
     error InsufficientBalance(address, uint256 has, uint256 required);
 
     function safeTransfer(address _to, uint256 _amount) public {
-        if (_to == address(0) || balances[_to] == 0) {
+        if (_to == address(0) || _to.balance == 0) {
             revert UnsafeTransfer(_to);
         }
 

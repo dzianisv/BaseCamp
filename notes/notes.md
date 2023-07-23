@@ -493,3 +493,4 @@ Hybrid ERC-1155
 ## UnburnableToken excercise
 
 https://goerli.basescan.org/address/0xd361d61f6ef10918b475de7e1eb1077492ae439c
+https://goerli.basescan.org/address/0xb50090a988647bb2dca96d94a84cda3af71aa7ea
