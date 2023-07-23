@@ -2,7 +2,15 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.19",
+  solidity: {
+    version: "0.8.19+commit.7dd6d404", // Update this to your solidity version
+    settings: {
+      optimizer: {
+        enabled: false,
+        runs: 200, // This won't matter as the optimizer is disabled
+      }
+    }
+  },
   networks: {
     // for testnet
     'base-goerli': {

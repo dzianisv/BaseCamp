@@ -437,8 +437,8 @@ npx hardhat
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 npm install --save-dev dotenv
 npm install --save @openzeppelin/contracts
-npx hardhat compile
 
+npx hardhat compile
 npx hardhat run scripts/deploy.ts --network base-goerli
 ```
 
@@ -464,5 +464,28 @@ etherscan: {
  ```
 
  ```bash
- npx hardhat verify --network base-goerli <deployed address>
+ npx hardhat verify --network base-goerli $CONTRACT_ADDRESS
  ```
+
+
+
+
+ ## Foundry
+
+Notes from David Knott
+ - Quicker than Hardhat
+ - Everythin in Solidity
+
+
+```bash
+forge verify
+forge  deploy --verify # https://book.getfoundry.sh/reference/forge/forge-verify-contract
+forge test --gas-report
+chisel - to play with code
+```
+
+
+# Tokens
+Fungible ERC-20
+Non-Fungible ERC-721
+Hybrid ERC-1155
