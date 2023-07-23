@@ -490,7 +490,29 @@ Non-Fungible ERC-721
 Hybrid ERC-1155
 
 
-## UnburnableToken excercise
+### UnburnableToken excercise
 
-https://goerli.basescan.org/address/0xd361d61f6ef10918b475de7e1eb1077492ae439c
 https://goerli.basescan.org/address/0xb50090a988647bb2dca96d94a84cda3af71aa7ea
+https://goerli.basescan.org/address/0xaB6f3dCf74Ffe7C0045dfB7f32f207745e1b4D4e
+
+![](notes.md-images/2023-07-23-18-07-10.png)
+
+## ERC20
+
+- totalSupply(): Returns the total supply of the token.
+- balanceOf(address): Provides the balance of tokens held by a specific address.
+- transfer(address, uint256): Transfers a specified amount of tokens from the sender's address to the specified recipient's address.
+- transferFrom(address, address, uint256): Enables a third party to transfer tokens on behalf of the token owner, given that the owner has approved the transaction.
+- approve(address, uint256): Allows the token owner to grant permission to a third party to spend a specified amount of tokens on their behalf.
+- allowance(address, address): Returns the amount of tokens the token owner has allowed a third party to spend on their behalf.
+- name(): Returns the name of the token, for example, "Uniswap."
+- symbol(): Provides the token's symbol, like "UNI."
+- decimals(): Indicates the number of decimal places the token can be divided into, typically 18 for most tokens.
+
+
+### WeightedVotingToken excercise
+
+https://goerli.basescan.org/address/0x144cf729da99bc1c73e2e5f752ab63ffdc809e81
+https://goerli.basescan.org/address/0xba6a392c847b6a5e90865cdb5c29107a188ebc85
+
+![](notes.md-images/2023-07-23-19-29-00.png)

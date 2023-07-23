@@ -4,3 +4,9 @@
 [submodule "excercises/BasicToken/lib/forge-std"]
 	path = excercises/BasicToken/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
+[submodule "excercises/WeightedVotingToken/lib/forge-std"]
+	path = excercises/WeightedVotingToken/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "excercises/WeightedVotingToken/lib/openzeppelin-contracts"]
+	path = excercises/WeightedVotingToken/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
