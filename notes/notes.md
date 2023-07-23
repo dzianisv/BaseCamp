@@ -516,3 +516,20 @@ https://goerli.basescan.org/address/0x144cf729da99bc1c73e2e5f752ab63ffdc809e81
 https://goerli.basescan.org/address/0xba6a392c847b6a5e90865cdb5c29107a188ebc85
 
 ![](notes.md-images/2023-07-23-19-29-00.png)
+
+## ERC-721
+
+An ERC-721 token comprises a smart contract implementing the standardized interface, which includes six primary functions:
+
+- balanceOf(address) Returns the number of tokens held by a specific address.
+- ownerOf(uint256): Provides the owner of a specified token.
+- safeTransferFrom(address, address, uint256): Transfers a specific token's ownership from one address to another.
+- transferFrom(address, address, uint256): Allows a third party to transfer tokens on the token owner's behalf, given the owner's approval.
+- approve(address, uint256): Enables the token owner to permit a third party to transfer a specific token on their behalf.
+- getApproved(uint256): Shows the approved address for a specific token.
+These functions ensure each ERC-721 token has a unique identifier and can be owned and transferred individually.
+
+
+### HaikuNFT Excercise
+
+https://goerli.basescan.org/address/0x012328fd3fd3e07e9057700e6e105272313c0fd5
