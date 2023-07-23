@@ -495,7 +495,7 @@ Hybrid ERC-1155
 https://goerli.basescan.org/address/0xb50090a988647bb2dca96d94a84cda3af71aa7ea
 https://goerli.basescan.org/address/0xaB6f3dCf74Ffe7C0045dfB7f32f207745e1b4D4e
 
-![](notes.md-images/2023-07-23-18-07-10.png)
+![](notes.md-images/2023-07-23-18-07-10.webp)
 
 ## ERC20
 
@@ -515,7 +515,21 @@ https://goerli.basescan.org/address/0xaB6f3dCf74Ffe7C0045dfB7f32f207745e1b4D4e
 https://goerli.basescan.org/address/0x144cf729da99bc1c73e2e5f752ab63ffdc809e81
 https://goerli.basescan.org/address/0xba6a392c847b6a5e90865cdb5c29107a188ebc85
 
-![](notes.md-images/2023-07-23-19-29-00.png)
+
+https://goerli.basescan.org/token/0x652ad79cb9996c5e5e3de2f19e63eb5ae8b51ea8?a=0x9945ba0a781200b90b4c28528cced309abb90871
+tokenId: 39
+![](notes.md-images/2023-07-23-23-14-01.webp)
+![](notes.md-images/2023-07-23-19-29-00.webp)
+
+```json
+{
+    "name": "ERC-20 Tokens",
+    "description": "Demonstrated your knowledge of the ERC-20 token standard.",
+    "image": "ipfs://QmPDMsmRWzkN8p9Wt8JqqvKASpYBqMGDX13fuUELBbShqG/Base_Camp_NFT_14.webp"
+}
+```
+
+./![](notes.md-images/2023-07-23-23-17-18.webp)
 
 ## ERC-721
 
@@ -532,4 +546,17 @@ These functions ensure each ERC-721 token has a unique identifier and can be own
 
 ### HaikuNFT Excercise
 
-https://goerli.basescan.org/address/0x012328fd3fd3e07e9057700e6e105272313c0fd5
+https://goerli.basescan.org/address/0xa717e601b6a94bb93f18a237bd0e3f9d18eab47f
+https://goerli.basescan.org/token/0xc626b3b66c97e8fe114723c7a9c1e16d6f2306ea?a=0x9945ba0a781200b90b4c28528cced309abb90871
+
+![](notes.md-images/2023-07-23-23-10-54.webp)
+
+`tokenId: 42`
+
+```json
+{
+    "name": "ERC-721 Token",
+    "description": "Demonstrated your knowledge of the ERC-721 token standard.",
+    "image": "ipfs://QmPDMsmRWzkN8p9Wt8JqqvKASpYBqMGDX13fuUELBbShqG/Base_Camp_NFT_15.webp"
+}
+```
